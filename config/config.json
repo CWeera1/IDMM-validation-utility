@@ -1,0 +1,17 @@
+
+{
+    "source_file_location": "tests/test-csv.csv",
+    "mapping": {
+        "source_column1": "target_column1",
+        "source_column2": "target_column2"
+    },
+    "target_environment": "snowflake",
+    "connection_details": {
+        "user": "your_snowflake_user",
+        "password": "your_snowflake_password",
+        "account": "your_snowflake_account",
+        "warehouse": "your_snowflake_warehouse",
+        "database": "your_snowflake_database",
+        "schema": "your_snowflake_schema"
+    }
+}
