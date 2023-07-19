@@ -2,14 +2,32 @@
 
 Data Migration Utility is a Python-based tool for automating the process of uploading CSV files into a Snowflake database. It validates the CSV files, maps the data according to the configuration, and uploads it to the specified tables in Snowflake.
 
-## Features
+## V1 Features
 
-- Take input as a JSON object detailing the features of a CSV file to be validated
-- Validate CSV file format.
-- Map CSV data to the corresponding database table structure.
-- Load data into a Snowflake database.
-- Configurable through a JSON configuration file.
-- Easy to extend for supporting additional databases in the future.
+- Runs in the command line - CSV and JSON to be specified in local config files before running
+- Takes input in the form of JSON object and CSV file
+    - JSON object to specify expected column headings, datatypes, expected number of rows
+    - CSV file to input data
+- Validate CSV file for the following:
+    - Does the CSV file have headings matching the JSON object?
+    - Does the CSV file have nulls?  If so, where?
+    - Are the datatypes throughout the CSV consistent with the datatype specified in the JSON object?
+    - Is the CSV appropriately structured?
+        - Does it have the same columns as expected?
+        - Does it have the same rows as expected?
+- Identify the following within the JSON:
+    - Does the CSV have nulls? If so, where?
+- Load data into a Snowflake database and provide progress information to stdout. 
+
+## V2 Features (WIP)
+
+- Datatypes and other parameters to be optional - Program to automatically detect most likely datatype by column
+- Frontend
+    - Create with python
+    - User should be able to specify database type (e.g. Snowflake, Informatica etc)
+    - User to be able to set parameters such as allow_nulls etc.
+- Config should have sane defaults
+- JSON object should be created in response to user input on frontend
 
 ## Prerequisites
 
