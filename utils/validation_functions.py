@@ -1,5 +1,3 @@
-import pandas as pd
-
 def validate_csv(df, config):
     # Does the CSV file have headings matching the JSON object?
     expected_columns = [col['name'] for col in config['expected_columns']]
