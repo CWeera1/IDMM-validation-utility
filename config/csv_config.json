@@ -1,5 +1,5 @@
 {
-    "source_file_location": "tests/test-csv.csv",
+    "source_file_location": "tests/correct-csv.csv",
     "expected_columns": [
         {
             "name": "name",
