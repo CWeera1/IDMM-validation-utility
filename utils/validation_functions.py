@@ -32,27 +32,6 @@ def is_datetime(value):
 def is_boolean(value):
     return isinstance(value, bool)
 
-def is_currency(value):
-    """
-    This function checks if the given value is a string that represents a currency amount.
-    The check is based on a regular expression pattern that matches a dollar sign followed by 
-    a number with optional thousands separators (commas) and optional decimal places 
-    (two digits after a period).
-
-    Parameters:
-    value (str): The value to be checked.
-
-    Returns:
-    bool: True if the value matches the currency pattern, False otherwise.
-    """
-    
-    # Define the regular expression pattern for a currency string
-    currency_regex = r'^\$\d{1,3}(,\d{3})*(\.\d{2})?$'
-    
-    # Check if the value matches the currency pattern
-    return re.match(currency_regex, value) is not None
-
-
 def is_percentage(value):
     # Assuming a custom implementation to check percentage data type
     # You can define your own logic here based on specific requirements
@@ -78,40 +57,148 @@ def is_json(value):
     except ValueError:
         return False
 
+def is_currency(value):
+    """
+    Checks if the given value is a string that represents a currency amount.
+    The check is based on a regular expression pattern.
+
+    Parameters:
+    value (str): The value to be checked.
+
+    Returns:
+    bool: True if the value matches the currency pattern, False otherwise.
+    """
+    
+    # Regular expression for a currency string:
+    # - '^'        : Start of the line
+    # - '\$'       : Dollar sign
+    # - '\d{1,3}'  : Between 1 and 3 digits
+    # - '(,\d{3})*': Zero or more groups of comma followed by exactly 3 digits
+    # - '(\.\d{2})?': Optional group of dot followed by exactly 2 digits
+    # - '$'        : End of the line
+    currency_regex = r'^\$\d{1,3}(,\d{3})*(\.\d{2})?$'
+    
+    # Check if the value matches the currency pattern
+    return re.match(currency_regex, value) is not None
+
+
 def is_url(value):
-    # Assuming a basic URL format check
-    # You can use a library like `validators` for more comprehensive URL validation
-    # This is just a placeholder example
+    """
+    Checks if the given value is a string that represents a URL.
+    The check is based on a regular expression pattern.
+
+    Parameters:
+    value (str): The value to be checked.
+
+    Returns:
+    bool: True if the value matches the URL pattern, False otherwise.
+    """
+    
+    # Regular expression for a URL string:
+    # - '^https?' : String starts with 'http' or 'https'
+    # - '://'     : Followed by '://'
+    # - '(?:[a-zA-Z0-9]|[._-])+' : One or more alphanumeric characters or '.', '_' or '-'
+    # - '$'       : End of the line
     url_regex = r'^https?://(?:[a-zA-Z0-9]|[._-])+$'
+    
+    # Check if the value matches the URL pattern
     return re.match(url_regex, value) is not None
 
+
 def is_email(value):
-    # Assuming a basic email format check
-    # You can use a library like `email-validator` for more comprehensive email validation
-    # This is just a placeholder example
+    """
+    Checks if the given value is a string that represents an email address.
+    The check is based on a regular expression pattern.
+
+    Parameters:
+    value (str): The value to be checked.
+
+    Returns:
+    bool: True if the value matches the email pattern, False otherwise.
+    """
+    
+    # Regular expression for an email string:
+    # - '^'        : Start of the line
+    # - '[a-zA-Z0-9._%+-]+' : One or more alphanumeric characters or '.', '_', '%', '+' or '-'
+    # - '@'        : At sign '@'
+    # - '[a-zA-Z0-9.-]+' : One or more alphanumeric characters or '.' or '-'
+    # - '\.[a-zA-Z]{2,}$' : A dot '.' followed by 2 or more alphabetic characters, and end of line
     email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    
+    # Check if the value matches the email pattern
     return re.match(email_regex, value) is not None
 
 def is_ip_address(value):
-    # Assuming a basic IP address format check
-    # You can use a library like `ipaddress` for more comprehensive IP address validation
-    # This is just a placeholder example
+    """
+    Checks if the given value is a string that represents an IP address.
+    The check is based on a regular expression pattern.
+
+    Parameters:
+    value (str): The value to be checked.
+
+    Returns:
+    bool: True if the value matches the IP address pattern, False otherwise.
+    """
+    
+    # Regular expression for an IP address string:
+    # - '^'        : Start of the line
+    # - '\d{1,3}'  : Between 1 and 3 digits
+    # - '\.'       : Dot '.'
+    # - '\d{1,3}'  : Between 1 and 3 digits
+    # - '\.'       : Dot '.'
+    # - '\d{1,3}'  : Between 1 and 3 digits
+    # - '\.'       : Dot '.'
+    # - '\d{1,3}'  : Between 1 and 3 digits
+    # - '$'        : End of the line
     ip_regex = r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$'
+    
+    # Check if the value matches the IP address pattern
     return re.match(ip_regex, value) is not None
 
 def is_coordinates(value):
-    # Assuming a basic coordinates format check
-    # You can define your own logic based on specific requirements
-    # This is just a placeholder example
+    """
+    Checks if the given value is a string that represents a coordinate pair.
+    The check is based on a regular expression pattern.
+
+    Parameters:
+    value (str): The value to be checked.
+
+    Returns:
+    bool: True if the value matches the coordinates pattern, False otherwise.
+    """
+    
+    # Regular expression for a coordinates string:
+    # - '^'        : Start of the line
+    # - '-?\d+(\.\d+)?' : A digit sequence, optionally preceded by '-' and optionally followed by '.' and more digits
+    # - ','        : Comma ','
+    # - '-?\d+(\.\d+)?' : A digit sequence, optionally preceded by '-' and optionally followed by '.' and more digits
+    # - '$'        : End of the line
     coordinates_regex = r'^-?\d+(\.\d+)?,-?\d+(\.\d+)?$'
+    
+    # Check if the value matches the coordinates pattern
     return re.match(coordinates_regex, value) is not None
 
 def is_binary_data(value):
-    # Assuming a basic check for binary data
-    # You can define your own logic based on specific requirements
-    # This is just a placeholder example
+    """
+    Checks if the given value is a string that represents binary data (sequence of 0s and 1s).
+    The check is based on a regular expression pattern.
+
+    Parameters:
+    value (str): The value to be checked.
+
+    Returns:
+    bool: True if the value matches the binary data pattern, False otherwise.
+    """
+    
+    # Regular expression for a binary data string:
+    # - '^'        : Start of the line
+    # - '[01]+'    : One or more of '0' or '1'
+    # - '$'        : End of the line
     binary_regex = r'^[01]+$'
+    
+    # Check if the value matches the binary data pattern
     return re.match(binary_regex, value) is not None
+
 
 def validate_csv(df, config):
     # Change column headings to lowercase

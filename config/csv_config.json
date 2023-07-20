@@ -1,5 +1,5 @@
 {
-    "source_file_name": "invalid-salary-test.csv",
+    "source_file_name": "missing-comma-test.csv",
     "expected_columns": [
         {
             "name": "name",
