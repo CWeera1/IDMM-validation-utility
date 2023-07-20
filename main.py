@@ -1,31 +1,31 @@
-
 import os
-from utils.IO_functions import read_csv_file, read_json_file
-from utils.classes import Person, DatabaseConfig
+import json
+from utils.classes import DatabaseConfig
+from utils.validation_functions import validate_csv
+import pandas as pd
+
 import connectors.snowflake_connector
 
 # define root directory
-current_dir = os.getcwd()
-root_dir = os.path.dirname(current_dir)
+root_dir = os.getcwd()
 
-# read in the csv file using the util function and print to stdout
+# generate path to csv_config.json
+csv_config_path = os.path.join(root_dir, 'config', 'csv_config.json')
 
-# Usage
-file_path = 'tests/test.csv'
-csv_data = read_csv_file(file_path)
-print(csv_data)
+# Load json config
+with open(csv_config_path, 'r') as f:
+    json_config = json.load(f)
 
-# storing records in memory as python objects
-person_list = []
-names_list = []
-for row in csv_data:
-    person_list.append(row) # now person_list contains a list of each of the Person objects
-print(person_list)
+# Get csv file path from json config
+csv_file_path = os.path.join(root_dir, 'tests', json_config['source_file_name'])
 
-# read in the json file using the util function and print to stdout
-file_path = 'config/csv_config.json'  # Specify the path to the JSON file
-json_dict = read_json_file(file_path)  # Call the function to read and parse the JSON file
-print(json_dict)
+# Load csv data
+csv_data = pd.read_csv(csv_file_path)
 
-# create a cursor object to execute queries
-cursor = conn.cursor()
+# validate the csv file
+if not validate_csv(csv_data, json_config):
+    print("Validation failed. The CSV file does not meet the specified criteria.")
+    exit(1)
+
+# If csv passes validation, continue with rest of the program
+print("CSV file validated successfully.")
