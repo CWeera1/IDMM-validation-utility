@@ -1,5 +1,5 @@
 {
-    "source_file_name": "correct-test.csv",
+    "source_file_name": "invalid-salary-test.csv",
     "expected_columns": [
         {
             "name": "name",
@@ -7,11 +7,11 @@
         },
         {
             "name": "age",
-            "datatype": "int"
+            "datatype": "positive_integer"
         },
         {
             "name": "gender",
-            "datatype": "string"
+            "datatype": "gender"
         },
         {
             "name": "email",
@@ -39,8 +39,8 @@
         },
         {
             "name": "salary",
-            "datatype": "float"
+            "datatype": "currency"
         }
     ],
-    "expected_rows": 100
+    "expected_rows": 10
 }
