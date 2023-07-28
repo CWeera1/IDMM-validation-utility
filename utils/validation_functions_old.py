@@ -199,30 +199,35 @@ def is_binary_data(value):
     # Check if the value matches the binary data pattern
     return re.match(binary_regex, value) is not None
 
-def get_column_set_difference(expected, actual):
-    """Compute the differences between expected and actual column sets."""
-    missing_columns = expected - actual
-    unexpected_columns = actual - expected
-    return missing_columns, unexpected_columns
 
-def display_column_differences(missing_columns, unexpected_columns):
-    """Display column differences."""
+def validate_csv(input_df, config):
+    # Change column headings to lowercase
+    df = input_df.copy()
+    df.columns = input_df.columns.str.lower()
+
+    # Does the CSV file have headings matching the JSON object?
+    expected_columns = set([col['name'] for col in config['expected_columns']])
+    actual_columns = set(df.columns)
+    missing_columns = expected_columns - actual_columns
+    unexpected_columns = actual_columns - expected_columns
+
     if missing_columns or unexpected_columns:
         print("Mismatched column names detected.")
         if missing_columns:
             print(f"Expected but missing: {list(missing_columns)}")
         if unexpected_columns:
             print(f"Found but not expected: {list(unexpected_columns)}")
+        return False
 
-def check_null_values(df):
-    """Check if the dataframe contains any null values."""
+
+    # Does the CSV file have nulls? If so, where?
     null_counts = df.isnull().sum()
     if null_counts.any():
         print("The CSV file contains null values in the following columns:")
         print(null_counts[null_counts > 0])
+        return False
 
-def check_datatype_consistency(df, config):
-    """Check if datatypes in the dataframe are consistent with the expected datatypes."""
+    # Are the datatypes throughout the CSV consistent with the datatype specified in the JSON object?
     mismatches = {}
     for col in config['expected_columns']:
         col_name = col['name']
@@ -236,51 +241,31 @@ def check_datatype_consistency(df, config):
             print(f"Column '{col_name}':")
             print(entries)
             print()
+        return False
 
-def validate_row_count(df, expected_rows):
-    """Validate if the row count of the dataframe matches the expected row count."""
+    # Does it have the same rows as expected?
+    expected_rows = config['expected_rows']
     actual_rows = df.shape[0]
     if expected_rows != actual_rows:
         print(f"The number of rows in the CSV does not match the expected number. Expected: {expected_rows}, but got: {actual_rows}")
         return False
-    return True
 
-def validate_csv(input_df, config):
-    """Validate a CSV dataframe against a config."""
-
-    # Copy and lowercase dataframe column headers
-    df = input_df.copy()
-    df.columns = input_df.columns.str.lower()
-
-    # Check for column mismatches
-    expected_columns = set([col['name'] for col in config['expected_columns']])
-    actual_columns = set(df.columns)
-    missing_columns, unexpected_columns = get_column_set_difference(expected_columns, actual_columns)
-    display_column_differences(missing_columns, unexpected_columns)
-
-    # Check for null values
-    check_null_values(df)
-
-    # Check for datatype consistency
-    check_datatype_consistency(df, config)
-
-    # Validate row count
-    if not validate_row_count(df, config['expected_rows']):
-        return False
-
-    return True  # Return True if all checks pass, False otherwise
+    return True  # return True if all checks pass, False otherwise
 
 def clean_data(input_df, config):
-    """Clean a validated CSV dataframe for implementation into Snowflake."""
+    """
+     if the csv is validated correctly, need to format it so that it can be implemented into sf clearly
+    """
 
-    # Copy and lowercase dataframe column headers
+    # Import the dataframe and lowercase the headings
     df = input_df.copy()
     df.columns = df.columns.str.lower()
     
-    # Iterate through columns and clean data
+    # iterate through the columns and look for issues
     for col in config['expected_columns']:
         col_name = col['name']
         expected_datatype = col['datatype']
+        # currency is not formatted as a number - need to change it to make calculation possible
         if expected_datatype == 'currency':
             df[col_name] = df[col_name].replace('[\$,]', '', regex=True).astype(float).map('{:.2f}'.format)
             
