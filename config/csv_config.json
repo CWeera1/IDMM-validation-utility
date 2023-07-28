@@ -1,5 +1,5 @@
 {
-    "source_file_name": "missing-comma-test.csv",
+    "source_file_name": "correct_test.csv",
     "expected_columns": [
         {
             "name": "name",
@@ -42,5 +42,5 @@
             "datatype": "currency"
         }
     ],
-    "expected_rows": 10
+    "expected_rows": 11
 }

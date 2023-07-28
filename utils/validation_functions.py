@@ -200,10 +200,11 @@ def is_binary_data(value):
     return re.match(binary_regex, value) is not None
 
 
-def validate_csv(df, config):
+def validate_csv(input_df, config):
     # Change column headings to lowercase
-    df.columns = df.columns.str.lower()
-    
+    df = input_df.copy()
+    df.columns = input_df.columns.str.lower()
+
     # Does the CSV file have headings matching the JSON object?
     expected_columns = set([col['name'] for col in config['expected_columns']])
     actual_columns = set(df.columns)
@@ -251,3 +252,21 @@ def validate_csv(df, config):
 
     return True  # return True if all checks pass, False otherwise
 
+def clean_data(input_df, config):
+    """
+     if the csv is validated correctly, need to format it so that it can be implemented into sf clearly
+    """
+
+    # Import the dataframe and lowercase the headings
+    df = input_df.copy()
+    df.columns = df.columns.str.lower()
+    
+    # iterate through the columns and look for issues
+    for col in config['expected_columns']:
+        col_name = col['name']
+        expected_datatype = col['datatype']
+        # currency is not formatted as a number - need to change it to make calculation possible
+        if expected_datatype == 'currency':
+            df[col_name] = df[col_name].replace('[\$,]', '', regex=True).astype(float).map('{:.2f}'.format)
+            
+    return df
