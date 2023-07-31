@@ -1,0 +1,976 @@
+[
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "POLICYTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "NOTE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1000",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CHANGEDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "APPROVEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CHANGEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISACTIVE",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "LEGACY_CREATEDBY",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "ORIGINALID",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICYTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "NOTE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1000",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CHANGEDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "APPROVEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CHANGEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISACTIVE",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "LEGACY_CREATEDBY",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "POLICYTRANSACTIONCHANGEID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANS_BENEFITID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "FIELD",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PRIMARYKEY",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1000",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TABLENAME",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "100",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ACTIONTYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "OLDVALUE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "500",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "NEWVALUE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "500",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISACTIVE",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "ORIGINALID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICYTRANSACTIONCHANGEID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANS_BENEFITID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "FIELD",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PRIMARYKEY",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1000",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TABLENAME",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "100",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ACTIONTYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "OLDVALUE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "500",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "NEWVALUE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "500",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISACTIVE",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "POLICYID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTIONCODEID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "AMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "EFFECTIVEDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTIONSTATUSID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTIONTYPEID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTIONMODETYPEID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "BPMSCASENUMBER",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "100",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "APPROVEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTIONDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "SWITCHREASONTYPEID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "SWITCHMODETYPEID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICYWITHDRAWALID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "INVESTMENTGAINAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "REVERSALTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PROCESSINGFEEAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "DISHONOURDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "BILLINGMETHODID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRIBUTIONTYPEID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "DIRECTDEBITINSTRUCTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "REVERSALREASON",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "250",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "DISHONOURREASONCODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICYROLLOVERID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISSENTTOMIMO",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONDITIONOFRELEASEID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TAXWITHHELD",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PREMIUMS",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRIBUTIONTYPE_ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRIBUTIONTAX",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRIBUTIONTAXAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "DEATHPREMIUMS",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TPDPREMIUMS",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRIBUTIONTYPESUPER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TAXWITHHELDAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRIBUTIONTAXPERCENTAGE",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PREMIUMAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "DEATHPREMIUMAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TPDPREMIUMAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICYROLLOVEROUTID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICYROLLOVERINID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "POLICYTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "FEECODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "FEEAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "POLICYTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "INVESTMENTOPTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "NUMBEROFUNITS",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ALLOCATIONUNITPRICE",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "RELEASEUNITPRICE",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TOTALAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ALLOCATIONTYPEID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "FUNDBACKDATEEXPOSUREAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "AMPBACKDATEEXPOSUREAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "AMPBACKDATEERRORAMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "ORIGINALTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ALLOCATEDTRANSACTIONID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "EFFECTIVEDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "AMOUNT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "SUSPENSEFUNDSTATUSTYPEID",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ALLOCATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDBY",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDAT",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "BATCH_ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "BATCH_SEQ_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "SOURCE_SYSTEM",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICY_NUMBER",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "EFFECTIVE_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTION_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CLASS_OF_BUSINESS",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "MOVEMENT_TYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "MOVEMENT_EFFECTIVE_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "RENEW_TO_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "COMM_OVERIDE_REGIME",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PERSONAL_STMT_TYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "INSTAL_PREM_FACTOR",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PREMIUM_PAY_FREQ_CODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "5",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "GROUP_SCHEME_NBR",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICY_OWNER",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PLAN_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PLAN_NAME",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISACTIVE",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "NO"
+    },
+    {
+        "COLUMN_NAME": "BATCH_ID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "BATCH_SEQ_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "SOURCE_SYSTEM",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICY_NUMBER",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "EFFECTIVE_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "TRANSACTION_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CLASS_OF_BUSINESS",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "MOVEMENT_TYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "MOVEMENT_EFFECTIVEDATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "RENEW_TO_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "COMM_OVERRIDE_REGIME",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PERSONAL_STATEMENT_TYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "INSTAL_PREMIUM_FACTOR",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PREMIUM_PAY_FREQ_CODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "GROUP_SCHEME_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICY_OWNER",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PLAN_NUMBER",
+        "DATA_TYPE": "int",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PLAN_NAME",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CREATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "UPDATEDON",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISACTIVE",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISREJECTED",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "REGISTER_CODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "POLICY_OWNER_DOB",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "LAST_INCREASE_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "COUNTRY_CODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "5",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PERSONAL_STATEMENT_TYPE_RATE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PERSONAL_STATEMENT_TYPE_RT",
+        "DATA_TYPE": "decimal",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "PAS_MOVEMENT_TYPE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "10",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "INCREASE_DECREASE_INDICATOR",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "1",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "HISTORY_DEPENDENT",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "BENEFIT_RISK_FLAG",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "SOURCE_CODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "CONTRACT_EFFECTIVE_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "REJECTEDPOLICYID",
+        "DATA_TYPE": "bigint",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "REVERSAL_STATUS_CODE",
+        "DATA_TYPE": "nvarchar",
+        "CHARACTER_MAXIMUM_LENGTH": "50",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISSUED_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISSUE_DATE",
+        "DATA_TYPE": "datetime",
+        "IS_NULLABLE": "YES"
+    },
+    {
+        "COLUMN_NAME": "ISREPROCESSED",
+        "DATA_TYPE": "bit",
+        "IS_NULLABLE": "YES"
+    }
+]

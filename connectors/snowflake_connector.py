@@ -132,8 +132,6 @@ class SnowflakeConnector:
 
         print("Snowflake setup complete.")
 
-
-
     def insert_into_table(self, table_name, df):
         # Inserting data from a DataFrame into a table
         print(f"Attempting to insert data into table '{table_name}'...")

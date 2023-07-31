@@ -42,5 +42,6 @@
             "datatype": "currency"
         }
     ],
-    "expected_rows": 11
+    "expected_rows": 11,
+    "expected delimiter": ";"
 }
