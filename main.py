@@ -26,7 +26,7 @@ def load_configs():
     # Load csv data
     csv_data = pd.read_csv(csv_file_path)
 
-    return csv_data, csv_config_json, db_config
+    return csv_data, csv_config_json, db_config, csv_file_path
 
 def validate_data(csv_data, csv_config):
     # validate the csv file
@@ -37,7 +37,7 @@ def validate_data(csv_data, csv_config):
     print("CSV file validated successfully.")
     return csv_data
 
-def migrate_data(cleaned_data, db_config, connector, csv_file_path):
+def migrate_data(cleaned_data, db_config, connector, csv_file_path, csv_config):
     # Extract the table name from the csv file name
     table_name = os.path.basename(csv_file_path).replace('.csv', '').upper()
 
@@ -54,15 +54,19 @@ def migrate_data(cleaned_data, db_config, connector, csv_file_path):
     connector.refresh_table(table_name, table_definition, cleaned_data, db_schema)
 
 def main():
-    csv_data, csv_config, db_config = load_configs()
-
+    print('running main function')
+    csv_data, csv_config, db_config, csv_file_path = load_configs()
+    print(f'configs loaded: {csv_data}')
+    
     validated_data = validate_data(csv_data, csv_config)
     cleaned_data = clean_data(validated_data, csv_config)
 
     # Use SnowflakeConnector for data migration
-    connector = SnowflakeConnector(**db_config['database_details'])
+    connector = SnowflakeConnector(db_config['database_details'])
     connector.connect()
-    migrate_data(cleaned_data, db_config, connector)
+    connector.setup_snowflake(connector.warehouse, connector.database, connector.schema)
+    
+    migrate_data(cleaned_data, db_config, connector, csv_file_path, csv_config)
     connector.close()
 
 if __name__ == "__main__":
