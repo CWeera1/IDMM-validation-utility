@@ -5,6 +5,7 @@
 .python-version
 __pycache__/
 */__init__.py
-*/db_config.json
 data-mig/
 data-mig/*
+config/
+config/*
