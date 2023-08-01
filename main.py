@@ -3,6 +3,7 @@ import json
 import pandas as pd
 from connectors.snowflake_connector import SnowflakeConnector
 from utils.validation_functions import CSVValidator  # Import the class instead of individual functions
+from utils.API_interaction import API_Interface, CSV_Config_Manager
 
 
 def load_configs():
@@ -55,7 +56,28 @@ def migrate_data(cleaned_data, db_config, connector, csv_file_path, csv_config):
     connector.refresh_table(table_name, table_definition, cleaned_data, db_schema)
 
 def main():
+    
+    
     print('running main function')
+
+    print('instantiating classes')
+
+    response_file_path = "config/response.json"
+    config_file_path = "config/csv_config.json"
+    csv_file_path = "tests/opals_test.csv"
+    api_interactor = API_Interface(response_file_path, csv_file_path)
+    csv_config_manager = CSV_Config_Manager(config_file_path, response_file_path)
+
+    print('Connecting to API to update response.json')
+    # TODO: connect to API once access is provided and write over response.json
+    print('API inactive - response.json unchanged')
+    
+    print('updating csv_config')
+
+
+
+
+    print('loading configs')
     csv_data, csv_config, db_config, csv_file_path = load_configs()
     print(f'configs loaded: {csv_data}')
     

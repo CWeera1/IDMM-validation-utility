@@ -1,19 +1,55 @@
 # Importing the requests module
+import csv
+import json
 import requests
 
-class ColumnDataTypeAPI:
-    def __init__(self, response_file_path):
+class CSV_Config_Manager:
+    def __init__(self, config_file_path, response_file_path):
+        self.config_file_path = config_file_path
         self.response_file_path = response_file_path
+        self.load_config()
 
-    def get_column_data_types(self):
-        # (Same as before)
+    def load_config(self):
+        # Read in the config file from csv_config.json
+        with open(self.config_file_path, 'r') as file:
+            self.config = json.load(file)
+
+    def read_response(self):
+        # Read the column data types from response.json
         with open(self.response_file_path, 'r') as file:
             response_content = file.read()
         response_data = json.loads(response_content)
-        column_info = [{"name": column["COLUMN_NAME"], "data_type": column["DATA_TYPE"]} for column in response_data]
+        column_info = [{"COLUMN_NAME": column["COLUMN_NAME"], "DATA_TYPE": column["DATA_TYPE"]} for column in response_data]
         return column_info
 
-    def get_column_data_types_from_api(self, auth_token, csv_headings):
+    def update_csv_config(self):
+        # Read the response and get the column_info
+        column_info = self.read_response()
+
+        # Update the expected_columns with the new column_info
+        self.config['expected_columns'] = column_info
+
+        # Write the updated config back to the file
+        with open(self.config_file_path, 'w') as file:
+            json.dump(self.config, file, indent=4)
+
+
+class API_Interface:
+    def __init__(self, response_file_path, csv_file_path):
+        self.response_file_path = response_file_path
+        self.csv_file_path = csv_file_path
+
+    def get_csv_headings(self):
+        # Read the CSV file to get the headings
+        with open(self.csv_file_path, newline='') as file:
+            reader = csv.reader(file)
+            headings = next(reader)  # Get the first row, which contains the headings
+        return headings
+
+    def get_column_data_types_from_api(self, auth_token):
+        # Get the CSV headings from the specified file
+        csv_headings = self.get_csv_headings()
+
         # Placeholder API endpoint URL
         api_url = "https://api.example.com/get_column_data_types"
 
@@ -26,11 +62,17 @@ class ColumnDataTypeAPI:
         # Sending a POST request to the API
         response = requests.post(api_url, json=payload, headers=headers)
 
-        # Parsing the response JSON (assuming a similar structure to the response.txt file)
+        # Parsing the response JSON
         response_data = response.json()
+
+        # Writing the response to the response.json file
+        with open(self.response_file_path, 'w') as file:
+            json.dump(response_data, file, indent=4)
+
         column_info = [{"name": column["COLUMN_NAME"], "data_type": column["DATA_TYPE"]} for column in response_data]
 
         return column_info
+
 
 # Example usage with placeholder values (for demonstration purposes)
 # auth_token_example = "your_auth_token_here"
