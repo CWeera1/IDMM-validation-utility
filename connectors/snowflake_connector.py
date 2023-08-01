@@ -89,7 +89,7 @@ class SnowflakeConnector:
             'email': 'TEXT',
             'ip_address': 'TEXT',
             'coordinates': 'TEXT',
-            'binary_data': 'BINARY'
+            'binary_data': 'BINARY',
         }
         
         # Initialize an empty list to hold column definitions
@@ -99,16 +99,16 @@ class SnowflakeConnector:
         for column in config['expected_columns']:
             
             # Change to uppercase and load columns into SQL
-            column['name'] = column['name'].upper()
-            print(f"Processing column '{column['name']}' with datatype '{column['datatype']}'...")
+            column['COLUMN_NAME'] = column['COLUMN_NAME'].upper()
+            print(f"Processing column '{column['COLUMN_NAME']}' with datatype '{column['DATA_TYPE']}'...")
             
             # Map the CSV config data type to a Snowflake SQL data type
-            sql_type = type_mapping.get(column['datatype'], 'TEXT')
-            print(f"Mapped CSV config datatype '{column['datatype']}' to SQL data type '{sql_type}'.")
+            sql_type = type_mapping.get(column['DATA_TYPE'], 'TEXT')
+            print(f"Mapped CSV config datatype '{column['DATA_TYPE']}' to SQL data type '{sql_type}'.")
 
             # Add the column definition to the list
-            columns.append(f"{column['name']} {sql_type}")
-            print(f"Added column definition '{column['name']} {sql_type}' to schema.")
+            columns.append(f"{column['COLUMN_NAME']} {sql_type}")
+            print(f"Added column definition '{column['COLUMN_NAME']} {sql_type}' to schema.")
 
         # Join the column definitions into a single string, separated by commas
         table_definition = ', '.join(columns)

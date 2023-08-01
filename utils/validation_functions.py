@@ -1,81 +1,31 @@
 import json
 import re
 import datetime
+import csv
 
-import json
-import re
-import datetime
+
 
 class CSVValidator:
     def __init__(self, config):
         self.config = config
 
-    def is_string(self, value):
+    def is_nvarchar(self, value):
         return isinstance(value, str)
 
-    def is_integer(self, value):
+    def is_bigint(self, value):
         return isinstance(value, int)
-
-    def is_positive_integer(self, value):
-        return value > 0 if isinstance(value, int) else False
-
-    def is_gender(self, value):
-        return value in {'m', 'M', 'f', 'F', 'male', 'Male', 'female', 'Female'}
-
-    def is_float(self, value):
-        return isinstance(value, float)
-
-    def is_date(self, value):
-        return isinstance(value, datetime.date)
-
-    def is_time(self, value):
-        return isinstance(value, datetime.time)
 
     def is_datetime(self, value):
         return isinstance(value, datetime.datetime)
 
-    def is_boolean(self, value):
+    def is_int(self, value):
+        return isinstance(value, int)
+
+    def is_decimal(self, value):
+        return isinstance(value, float) or (isinstance(value, str) and '.' in value)
+
+    def is_bit(self, value):
         return isinstance(value, bool)
-
-    def is_percentage(self, value):
-        return value.endswith("%")
-
-    def is_scientific_notation(self, value):
-        return "E+" in value or "E-" in value
-
-    def is_enum(self, value, enum_values):
-        return value in enum_values
-
-    def is_json(self, value):
-        try:
-            json.loads(value)
-            return True
-        except ValueError:
-            return False
-
-    def is_currency(self, value):
-        currency_regex = r'^\$\d{1,3}(,\d{3})*(\.\d{2})?$'
-        return re.match(currency_regex, value) is not None
-
-    def is_url(self, value):
-        url_regex = r'^https?://(?:[a-zA-Z0-9]|[._-])+$'
-        return re.match(url_regex, value) is not None
-
-    def is_email(self, value):
-        email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-        return re.match(email_regex, value) is not None
-
-    def is_ip_address(self, value):
-        ip_regex = r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$'
-        return re.match(ip_regex, value) is not None
-
-    def is_coordinates(self, value):
-        coordinates_regex = r'^-?\d+(\.\d+)?,-?\d+(\.\d+)?$'
-        return re.match(coordinates_regex, value) is not None
-
-    def is_binary_data(self, value):
-        binary_regex = r'^[01]+$'
-        return re.match(binary_regex, value) is not None
 
     def get_column_set_difference(self, expected, actual):
         """Compute the differences between expected and actual column sets."""
@@ -103,8 +53,8 @@ class CSVValidator:
         """Check if datatypes in the dataframe are consistent with the expected datatypes."""
         mismatches = {}
         for col in self.config['expected_columns']:
-            col_name = col['name']
-            expected_datatype = col['datatype']
+            col_name = col['COLUMN_NAME']
+            expected_datatype = col['DATA_TYPE']
             mismatched_entries = df[~df[col_name].map(getattr(self, f'is_{expected_datatype}'))][col_name]
             if not mismatched_entries.empty:
                 mismatches[col_name] = mismatched_entries
@@ -114,6 +64,7 @@ class CSVValidator:
                 print(f"Column '{col_name}':")
                 print(entries)
                 print()
+            return False
 
     def validate_row_count(self, df, expected_rows):
         """Validate if the row count of the dataframe matches the expected row count."""
@@ -128,10 +79,10 @@ class CSVValidator:
 
         # Copy and lowercase dataframe column headers
         df = input_df.copy()
-        df.columns = input_df.columns.str.lower()
+        df.columns = input_df.columns.str.upper()
 
         # Check for column mismatches
-        expected_columns = set([col['name'] for col in self.config['expected_columns']])
+        expected_columns = set([col['COLUMN_NAME'] for col in self.config['expected_columns']])
         actual_columns = set(df.columns)
         missing_columns, unexpected_columns = self.get_column_set_difference(expected_columns, actual_columns)
         self.display_column_differences(missing_columns, unexpected_columns)
@@ -157,8 +108,8 @@ class CSVValidator:
         
         # Iterate through columns and clean data
         for col in self.config['expected_columns']:
-            col_name = col['name']
-            expected_datatype = col['datatype']
+            col_name = col['COLUMN_NAME']
+            expected_datatype = col['DATA_TYPE']
             if expected_datatype == 'currency':
                 df[col_name] = df[col_name].replace('[\$,]', '', regex=True).astype(float).map('{:.2f}'.format)
                 

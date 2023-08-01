@@ -270,3 +270,74 @@ def clean_data(input_df, config):
             df[col_name] = df[col_name].replace('[\$,]', '', regex=True).astype(float).map('{:.2f}'.format)
             
     return df
+
+
+def is_nvarchar(self, value):
+        return isinstance(value, str)
+
+    def is_string(self, value):
+        return isinstance(value, str)
+
+    def is_integer(self, value):
+        return isinstance(value, int)
+
+    def is_positive_integer(self, value):
+        return value > 0 if isinstance(value, int) else False
+
+    def is_gender(self, value):
+        return value in {'m', 'M', 'f', 'F', 'male', 'Male', 'female', 'Female'}
+
+    def is_float(self, value):
+        return isinstance(value, float)
+
+    def is_date(self, value):
+        return isinstance(value, datetime.date)
+
+    def is_time(self, value):
+        return isinstance(value, datetime.time)
+
+    def is_datetime(self, value):
+        return isinstance(value, datetime.datetime)
+
+    def is_boolean(self, value):
+        return isinstance(value, bool)
+
+    def is_percentage(self, value):
+        return value.endswith("%")
+
+    def is_scientific_notation(self, value):
+        return "E+" in value or "E-" in value
+
+    def is_enum(self, value, enum_values):
+        return value in enum_values
+
+    def is_json(self, value):
+        try:
+            json.loads(value)
+            return True
+        except ValueError:
+            return False
+
+    def is_currency(self, value):
+        currency_regex = r'^\$\d{1,3}(,\d{3})*(\.\d{2})?$'
+        return re.match(currency_regex, value) is not None
+
+    def is_url(self, value):
+        url_regex = r'^https?://(?:[a-zA-Z0-9]|[._-])+$'
+        return re.match(url_regex, value) is not None
+
+    def is_email(self, value):
+        email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return re.match(email_regex, value) is not None
+
+    def is_ip_address(self, value):
+        ip_regex = r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$'
+        return re.match(ip_regex, value) is not None
+
+    def is_coordinates(self, value):
+        coordinates_regex = r'^-?\d+(\.\d+)?,-?\d+(\.\d+)?$'
+        return re.match(coordinates_regex, value) is not None
+
+    def is_binary_data(self, value):
+        binary_regex = r'^[01]+$'
+        return re.match(binary_regex, value) is not None

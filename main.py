@@ -70,12 +70,14 @@ def main():
 
     print('Connecting to API to update response.json')
     # TODO: connect to API once access is provided and write over response.json
+    #api_instance = API_Interface(response_file_path, csv_file_path)
+    #api_column_data_types = api_instance.get_column_data_types_from_api(auth_token_example)
     print('API inactive - response.json unchanged')
     
     print('updating csv_config')
-
-
-
+    csv_config_manager.load_config()
+    csv_config_manager.update_csv_config()
+    print('csv config updated')
 
     print('loading configs')
     csv_data, csv_config, db_config, csv_file_path = load_configs()

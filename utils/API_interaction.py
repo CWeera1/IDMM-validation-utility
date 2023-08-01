@@ -29,6 +29,9 @@ class CSV_Config_Manager:
         # Update the expected_columns with the new column_info
         self.config['expected_columns'] = column_info
 
+        # Print updated config to stdout
+        print(self.config)
+
         # Write the updated config back to the file
         with open(self.config_file_path, 'w') as file:
             json.dump(self.config, file, indent=4)
