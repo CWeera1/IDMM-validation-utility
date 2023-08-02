@@ -1,0 +1,11 @@
+NAME;AGE;EMAIL;PHONE;ADDRESS;CITY;STATE;COUNTRY;SALARY;DATE_OF_BIRTH
+N'Mary Johnson';40;N'maryjohnson@example.com';N'123-456-790';N'110 Main St';N'San Francisco';N'CA';N'USA';60000;1991-05-15T12:34:56
+N'Tom Adams';41;N'tomadams@example.com';N'123-456-791';N'111 Main St';N'Austin';N'TX';N'USA';61000;1992-05-15T12:34:56
+N'Jerry Williams';42;N'jerrywilliams@example.com';N'123-456-792';N'112 Main St';N'Jacksonville';N'FL';N'USA';62000;1993-05-15T12:34:56
+N'Sarah Lewis';43;N'sarahlewis@example.com';N'123-456-793';N'113 Main St';N'Indianapolis';N'IN';N'USA';63000;1994-05-15T12:34:56
+N'Lucy Thompson';44;N'lucythompson@example.com';N'123-456-794';N'114 Main St';N'Columbus';N'OH';N'USA';64000;1995-05-15T12:34:56
+N'James Hall';45;N'jameshall@example.com';N'123-456-795';N'115 Main St';N'Charlotte';N'NC';N'USA';65000;1996-05-15T12:34:56
+N'Emily Allen';46;N'emilyallen@example.com';N'123-456-796';N'116 Main St';N'Seattle';N'WA';N'USA';66000;1997-05-15T12:34:56
+N'Michael Wright';47;N'michaelwright@example.com';N'123-456-797';N'117 Main St';N'Denver';N'CO';N'USA';67000;1998-05-15T12:34:56
+N'Olivia Harris';48;N'oliviaharris@example.com';N'123-456-798';N'118 Main St';N'Boston';N'MA';N'USA';68000;1999-05-15T12:34:56
+N'William Clark';49;N'williamclark@example.com';N'123-456-799';N'119 Main St';N'Nashville';N'TN';N'USA';69000;2000-05-15T12:34:56

@@ -3,8 +3,6 @@ import re
 import datetime
 import csv
 
-
-
 class CSVValidator:
     def __init__(self, config):
         self.config = config
@@ -16,16 +14,21 @@ class CSVValidator:
         return isinstance(value, int)
 
     def is_datetime(self, value):
-        return isinstance(value, datetime.datetime)
+        date_format = "%Y-%m-%dT%H:%M:%S"
+        try:
+            datetime.datetime.strptime(value, date_format)
+            return True
+        except (ValueError, TypeError) as e:
+            return False
 
     def is_int(self, value):
-        return isinstance(value, int)
+        return isinstance(value, int) and -2**31 <= value <= 2**31
 
     def is_decimal(self, value):
         return isinstance(value, float) or (isinstance(value, str) and '.' in value)
 
     def is_bit(self, value):
-        return isinstance(value, bool)
+        return value == 1 or 0
 
     def get_column_set_difference(self, expected, actual):
         """Compute the differences between expected and actual column sets."""
@@ -59,7 +62,7 @@ class CSVValidator:
             if not mismatched_entries.empty:
                 mismatches[col_name] = mismatched_entries
         if mismatches:
-            print("The following columns contain values that do not match the expected datatypes:")
+            print("The following columns contain values with unexpected datatypes or incorrect formatting:")
             for col_name, entries in mismatches.items():
                 print(f"Column '{col_name}':")
                 print(entries)
@@ -73,6 +76,45 @@ class CSVValidator:
             print(f"The number of rows in the CSV does not match the expected number. Expected: {expected_rows}, but got: {actual_rows}")
             return False
         return True
+    
+    def check_nvarchar_length(self, df):
+        all_columns_valid = True # Tracks if nvarchar columns exceed length
+        
+        for col in self.config['expected_columns']:
+            col_name = col['COLUMN_NAME']
+            expected_datatype = col['DATA_TYPE']
+            if expected_datatype == 'nvarchar' and 'CHARACTER_MAXIMUM_LENGTH' in col:
+                max_length = int(col['CHARACTER_MAXIMUM_LENGTH'])
+                too_long_entries = df[df[col_name].apply(lambda x: len(str(x)) > max_length)][col_name]
+                if not too_long_entries.empty:
+                    print(f"The following entries in column '{col_name}' exceed the maximum length of {max_length}:")
+                    print(too_long_entries)
+                    print()
+                    all_columns_valid = False
+        
+        return all_columns_valid
+    
+    def check_nvarchar_format(self, df):
+        all_columns_valid = True # Variable to keep track if all nvarchar columns are valid
+        
+        for col in self.config['expected_columns']:
+            col_name = col['COLUMN_NAME']
+            expected_datatype = col['DATA_TYPE']
+            if expected_datatype == 'nvarchar':
+                invalid_format_entries = df[~df[col_name].apply(lambda x: str(x).startswith("N'") and str(x).endswith("'"))][col_name]
+                if not invalid_format_entries.empty:
+                    print(f"The following entries in column '{col_name}' do not have the correct N'XXX' format:")
+                    print(invalid_format_entries)
+                    print()
+                    all_columns_valid = False
+        return all_columns_valid
+
+    def validate_columns(self, actual_columns):
+        """Validate that the actual columns match the expected columns."""
+        expected_columns = set([col['COLUMN_NAME'] for col in self.config['expected_columns']])
+        missing_columns, unexpected_columns = self.get_column_set_difference(expected_columns, actual_columns)
+        self.display_column_differences(missing_columns, unexpected_columns)
+        return not (missing_columns or unexpected_columns)
 
     def validate_csv(self, input_df):
         """Validate a CSV dataframe against a config."""
@@ -80,24 +122,35 @@ class CSVValidator:
         # Copy and lowercase dataframe column headers
         df = input_df.copy()
         df.columns = input_df.columns.str.upper()
-
-        # Check for column mismatches
-        expected_columns = set([col['COLUMN_NAME'] for col in self.config['expected_columns']])
         actual_columns = set(df.columns)
-        missing_columns, unexpected_columns = self.get_column_set_difference(expected_columns, actual_columns)
-        self.display_column_differences(missing_columns, unexpected_columns)
+
+        result = True
+
+        # Validate columns
+        if not self.validate_columns(actual_columns):
+            result = False
 
         # Check for null values
-        self.check_null_values(df)
+        if not self.check_null_values(df):
+            result = False
 
         # Check for datatype consistency
-        self.check_datatype_consistency(df)
+        if not self.check_datatype_consistency(df):
+            result = False
 
         # Validate row count
         if not self.validate_row_count(df, self.config['expected_rows']):
-            return False
+            result = False
 
-        return True  # Return True if all checks pass, False otherwise
+        # Check for NVARCHAR length consistency
+        if not self.check_nvarchar_length(df):
+            result = False 
+        
+        # Check for NVARCHAR format consistency
+        if not self.check_nvarchar_format(df):
+            result = False
+
+        return result # Return True if all checks pass, False otherwise
 
     def clean_data(self, input_df):
         """Clean a validated CSV dataframe for implementation into Snowflake."""

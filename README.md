@@ -29,6 +29,13 @@ Data Migration Utility is a Python-based tool for automating the process of uplo
 - Config should have sane defaults
 - JSON object should be created in response to user input on frontend
 
+## Scope Change
+
+- Now required to take in CSV and access API to look for matching columns and information
+- Receives response and validates CSV against API response
+- 
+
+
 ## Prerequisites
 
 - Python 3.8 or higher

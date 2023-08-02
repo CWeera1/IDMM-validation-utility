@@ -26,7 +26,7 @@ def load_configs():
     csv_file_path = os.path.join(root_dir, 'tests', csv_config_json['source_file_name'])
 
     # Load csv data
-    csv_data = pd.read_csv(csv_file_path)
+    csv_data = pd.read_csv(csv_file_path, delimiter=csv_config_json['expected_delimiter'])
 
     return csv_data, csv_config_json, db_config, csv_file_path
 
@@ -56,16 +56,18 @@ def migrate_data(cleaned_data, db_config, connector, csv_file_path, csv_config):
     connector.refresh_table(table_name, table_definition, cleaned_data, db_schema)
 
 def main():
-    
-    
     print('running main function')
 
-    print('instantiating classes')
+    # define root directory
+    root_dir = os.getcwd()
 
-    response_file_path = "config/response.json"
-    config_file_path = "config/csv_config.json"
-    csv_file_path = "tests/opals_test.csv"
-    api_interactor = API_Interface(response_file_path, csv_file_path)
+    # generate path to config.json files
+    config_file_path = os.path.join(root_dir, 'config', 'csv_config.json')
+    response_file_path = os.path.join(root_dir, 'config', 'response.json')
+
+    # instantiate required classes 
+    print('instantiating classes')
+    # api_interactor = API_Interface(response_file_path, csv_file_path)
     csv_config_manager = CSV_Config_Manager(config_file_path, response_file_path)
 
     print('Connecting to API to update response.json')
@@ -81,7 +83,7 @@ def main():
 
     print('loading configs')
     csv_data, csv_config, db_config, csv_file_path = load_configs()
-    print(f'configs loaded: {csv_data}')
+    print(f'configs loaded: \n {csv_data}')
     
     validated_data = validate_data(csv_data, csv_config)
 
@@ -91,12 +93,12 @@ def main():
 
 
     # Use SnowflakeConnector for data migration
-    connector = SnowflakeConnector(db_config['database_details'])
-    connector.connect()
-    connector.setup_snowflake(connector.warehouse, connector.database, connector.schema)
+    #connector = SnowflakeConnector(db_config['database_details'])
+    #connector.connect()
+    #connector.setup_snowflake(connector.warehouse, connector.database, connector.schema)
     
-    migrate_data(cleaned_data, db_config, connector, csv_file_path, csv_config)
-    connector.close()
-
+    #migrate_data(cleaned_data, db_config, connector, csv_file_path, csv_config)
+    #connector.close()
+    
 if __name__ == "__main__":
     main()

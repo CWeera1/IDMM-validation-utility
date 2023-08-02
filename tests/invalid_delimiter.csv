@@ -1,0 +1,11 @@
+NAME;AGE;GENDER;EMAIL;PHONE;ADDRESS;CITY;STATE;COUNTRY;SALARY;DATE_OF_BIRTH
+N'John Doe'-30-N'Male'-N'johndoe@example.com'-N'123-456-780'-N'100 Main St'-N'New York'-N'NY'-N'USA'-50000-1981-05-15T12:34:56
+N'Jane Smith'-31-N'Female'-N'janesmith@example.com'-N'123-456-781'-N'101 Main St'-N'Los Angeles'-N'CA'-N'USA'-51000-1982-05-15T12:34:56
+N'Robert Johnson'-32-N'Male'-N'robertjohnson@example.com'-N'123-456-782'-N'102 Main St'-N'Chicago'-N'IL'-N'USA'-52000-1983-05-15T12:34:56
+N'Emily Davis'-33-N'Female'-N'emilydavis@example.com'-N'123-456-783'-N'103 Main St'-N'Houston'-N'TX'-N'USA'-53000-1984-05-15T12:34:56
+N'Michael Wilson'-34-N'Male'-N'michaelwilson@example.com'-N'123-456-784'-N'104 Main St'-N'Phoenix'-N'AZ'-N'USA'-54000-1985-05-15T12:34:56
+N'Olivia Brown'-35-N'Female'-N'oliviabrown@example.com'-N'123-456-785'-N'105 Main St'-N'Philadelphia'-N'PA'-N'USA'-55000-1986-05-15T12:34:56
+N'William Taylor'-36-N'Male'-N'williamtaylor@example.com'-N'123-456-786'-N'106 Main St'-N'San Antonio'-N'TX'-N'USA'-56000-1987-05-15T12:34:56
+N'Sophia Anderson'-37-N'Female'-N'sophiaanderson@example.com'-N'123-456-787'-N'107 Main St'-N'San Diego'-N'CA'-N'USA'-57000-1988-05-15T12:34:56
+N'Daniel Martinez'-38-N'Male'-N'danielmartinez@example.com'-N'123-456-788'-N'108 Main St'-N'Dallas'-N'TX'-N'USA'-58000-1989-05-15T12:34:56
+N'Ava Rodriguez'-39-N'Female'-N'avarodriguez@example.com'-N'123-456-789'-N'109 Main St'-N'San Jose'-N'CA'-N'USA'-59000-19810-05-15T12:34:56

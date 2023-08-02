@@ -1,0 +1,11 @@
+NAME;AGE;GENDER;EMAIL;PHONE;ADDRESS;CITY;STATE;COUNTRY;SALARY;DATE_OF_BIRTH
+John Doe;30;Male;johndoe@example.com;123-456-780;100 Main St;New York;NY;USA;50000;1981-05-15T12:34:56
+N'Jane Smith';31;Female;janesmith@example.com;123-456-781;101 Main St;Los Angeles;CA;USA;51000;1982-05-15T12:34:56
+Robert Johnson;32;Male;robertjohnson@example.com;123-456-782;102 Main St;Chicago;IL;USA;52000;1983-05-15T12:34:56
+Emily Davis;33;Female;emilydavis@example.com;123-456-783;103 Main St;Houston;TX;USA;53000;1984-05-15T12:34:56
+Michael Wilson;34;Male;michaelwilson@example.com;123-456-784;104 Main St;Phoenix;AZ;USA;54000;1985-05-15T12:34:56
+Olivia Brown;35;Female;oliviabrown@example.com;123-456-785;105 Main St;Philadelphia;PA;USA;55000;1986-05-15T12:34:56
+William Taylor;36;Male;williamtaylor@example.com;123-456-786;106 Main St;San Antonio;TX;USA;56000;1987-05-15T12:34:56
+Sophia Anderson;37;Female;sophiaanderson@example.com;123-456-787;107 Main St;San Diego;CA;USA;57000;1988-05-15T12:34:56
+N'Daniel Martinez';38;Male;danielmartinez@example.com;123-456-788;108 Main St;Dallas;TX;USA;58000;1989-05-15T12:34:56
+Ava Rodriguez;39;Female;avarodriguez@example.com;123-456-789;109 Main St;San Jose;CA;USA;59000;19810-05-15T12:34:56

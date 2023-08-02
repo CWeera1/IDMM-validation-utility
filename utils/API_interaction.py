@@ -8,6 +8,8 @@ class CSV_Config_Manager:
         self.config_file_path = config_file_path
         self.response_file_path = response_file_path
         self.load_config()
+        self.read_response()
+        self.update_csv_config()
 
     def load_config(self):
         # Read in the config file from csv_config.json
@@ -17,20 +19,11 @@ class CSV_Config_Manager:
     def read_response(self):
         # Read the column data types from response.json
         with open(self.response_file_path, 'r') as file:
-            response_content = file.read()
-        response_data = json.loads(response_content)
-        column_info = [{"COLUMN_NAME": column["COLUMN_NAME"], "DATA_TYPE": column["DATA_TYPE"]} for column in response_data]
-        return column_info
+            self.column_info = json.load(file)
 
     def update_csv_config(self):
-        # Read the response and get the column_info
-        column_info = self.read_response()
-
         # Update the expected_columns with the new column_info
-        self.config['expected_columns'] = column_info
-
-        # Print updated config to stdout
-        print(self.config)
+        self.config['expected_columns'] = self.column_info
 
         # Write the updated config back to the file
         with open(self.config_file_path, 'w') as file:
