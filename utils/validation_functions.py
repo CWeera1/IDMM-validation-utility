@@ -57,6 +57,9 @@ class CSVValidator:
         mismatches = {}
         for col in self.config['expected_columns']:
             col_name = col['COLUMN_NAME']
+            if col_name not in df.columns: # Check if the column is present in the DataFrame
+                continue # Skip to the next column if it's missing
+
             expected_datatype = col['DATA_TYPE']
             mismatched_entries = df[~df[col_name].map(getattr(self, f'is_{expected_datatype}'))][col_name]
             if not mismatched_entries.empty:
@@ -83,6 +86,8 @@ class CSVValidator:
         for col in self.config['expected_columns']:
             col_name = col['COLUMN_NAME']
             expected_datatype = col['DATA_TYPE']
+            if col_name not in df.columns: # Check if the column is present in the DataFrame
+                continue # Skip to the next column if it's missing
             if expected_datatype == 'nvarchar' and 'CHARACTER_MAXIMUM_LENGTH' in col:
                 max_length = int(col['CHARACTER_MAXIMUM_LENGTH'])
                 too_long_entries = df[df[col_name].apply(lambda x: len(str(x)) > max_length)][col_name]
@@ -100,6 +105,9 @@ class CSVValidator:
         for col in self.config['expected_columns']:
             col_name = col['COLUMN_NAME']
             expected_datatype = col['DATA_TYPE']
+            if col_name not in df.columns: # Check if the column is present in the DataFrame
+                continue # Skip to the next column if it's missing
+
             if expected_datatype == 'nvarchar':
                 invalid_format_entries = df[~df[col_name].apply(lambda x: str(x).startswith("N'") and str(x).endswith("'"))][col_name]
                 if not invalid_format_entries.empty:
