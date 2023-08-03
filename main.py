@@ -2,8 +2,8 @@ import os
 import json
 import pandas as pd
 from connectors.snowflake_connector import SnowflakeConnector
-from utils.validation_functions import CSVValidator  # Import the class instead of individual functions
-from utils.API_interaction import API_Interface, CSV_Config_Manager
+from utils.validation_functions.validation_functions import validation_controller  # Import the class instead of individual functions
+from utils.API_interactions.API_interaction import API_Interface, CSV_Config_Manager
 
 
 def load_configs():
@@ -31,7 +31,7 @@ def load_configs():
     return csv_data, csv_config_json, db_config, csv_file_path
 
 def validate_data(csv_data, csv_config):
-    validator = CSVValidator(csv_config)  # Create an instance of the CSVValidator class
+    validator = validation_controller(csv_config)  # Create an instance of the validation_controller class
     if not validator.validate_csv(csv_data):  # Use the class method to validate the CSV
         print("Validation failed. The CSV file does not meet the specified criteria.")
         exit(1)
@@ -87,8 +87,8 @@ def main():
     
     validated_data = validate_data(csv_data, csv_config)
 
-    # Create an instance of the CSVValidator class and call the clean_data method
-    validator = CSVValidator(csv_config)
+    # Create an instance of the validation_controller class and call the clean_data method
+    validator = validation_controller(csv_config)
     cleaned_data = validator.clean_data(validated_data)
 
 

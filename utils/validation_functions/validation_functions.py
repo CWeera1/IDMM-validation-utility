@@ -3,7 +3,7 @@ import re
 import datetime
 import csv
 
-class CSVValidator:
+class validation_controller:
     def __init__(self, config):
         self.config = config
 
