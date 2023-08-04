@@ -18,6 +18,10 @@ Data Migration Utility is a Python-based tool for validating CSV files for uploa
     - Are any expected columns missing?
     - Are any unexpected columns present?
 
+## Pending Functionality
+
+- Awaiting access to workspace to implement API access functionality
+
 ## Configuration (WIP)
 
 Create a JSON configuration file named `csv_config.json` inside the `config` directory with the following structure:
