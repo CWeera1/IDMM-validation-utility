@@ -3,7 +3,7 @@ import re
 import datetime
 import csv
 
-class validation_controller:
+class validation_controller_old:
     def __init__(self, config):
         self.config = config
 
@@ -159,19 +159,3 @@ class validation_controller:
             result = False
 
         return result # Return True if all checks pass, False otherwise
-
-    def clean_data(self, input_df):
-        """Clean a validated CSV dataframe for implementation into Snowflake."""
-
-        # Copy and lowercase dataframe column headers
-        df = input_df.copy()
-        df.columns = df.columns.str.lower()
-        
-        # Iterate through columns and clean data
-        for col in self.config['expected_columns']:
-            col_name = col['COLUMN_NAME']
-            expected_datatype = col['DATA_TYPE']
-            if expected_datatype == 'currency':
-                df[col_name] = df[col_name].replace('[\$,]', '', regex=True).astype(float).map('{:.2f}'.format)
-                
-        return df

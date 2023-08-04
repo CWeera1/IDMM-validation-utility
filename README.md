@@ -1,6 +1,6 @@
 # Data Migration Utility - WIP
 
-Data Migration Utility is a Python-based tool for validating CSV files for upload into Infosistema DMM. 
+Data Migration Utility is a Python-based tool for validating CSV files for upload into Infosistema DMM via accessing an external API. 
 
 ## Scope Change
 
@@ -17,30 +17,24 @@ Data Migration Utility is a Python-based tool for validating CSV files for uploa
     - Are any datetimes incorrectly formatted?
     - Are any expected columns missing?
     - Are any unexpected columns present?
-- Code for connection to a database is still present but unused. 
 
 ## Configuration (WIP)
 
 Create a JSON configuration file named `csv_config.json` inside the `config` directory with the following structure:
 
 ```json
+
 {
  "source_file_name": "datatype_consistency.csv",
     "expected_rows": 10,
     "expected_delimiter": ";",
-    "expected_columns": [
-        {
-            "COLUMN_NAME": "NAME",
-            "DATA_TYPE": "nvarchar",
-            "IS_NULLABLE": "NO",
-            "CHARACTER_MAXIMUM_LENGTH": "50"
-        },
-        ...
-    ]
 }
+
 ```
 
-Create a JSON configuration file named `csv_config.json` inside the `config` directory with the following structure:
+Note that this file will be modified with output from the API call. 
+
+Create a JSON configuration file named `API_config.json` inside the `config` directory with the following structure:
 
 ```json
 
