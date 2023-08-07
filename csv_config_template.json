@@ -1,0 +1,63 @@
+{
+    "source_file_name": "null_values.csv",
+    "expected_rows": 10,
+    "expected_delimiter": ";",
+    "expected_columns": [
+        {
+            "COLUMN_NAME": "NAME",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO",
+            "CHARACTER_MAXIMUM_LENGTH": "50"
+        },
+        {
+            "COLUMN_NAME": "AGE",
+            "DATA_TYPE": "int",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "GENDER",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "EMAIL",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "PHONE",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "ADDRESS",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "CITY",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "STATE",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "COUNTRY",
+            "DATA_TYPE": "nvarchar",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "SALARY",
+            "DATA_TYPE": "int",
+            "IS_NULLABLE": "NO"
+        },
+        {
+            "COLUMN_NAME": "DATE_OF_BIRTH",
+            "DATA_TYPE": "datetime",
+            "IS_NULLABLE": "NO"
+        }
+    ]
+}

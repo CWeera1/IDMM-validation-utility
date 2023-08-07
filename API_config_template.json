@@ -1,0 +1,4 @@
+{
+    "api_url": "https://api.example.com/get_column_data_types",
+    "auth_token": "your_auth_token_here"
+}
