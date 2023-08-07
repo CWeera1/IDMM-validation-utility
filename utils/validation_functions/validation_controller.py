@@ -25,7 +25,7 @@ class validation_controller:
             result = False
 
         # Check for null values
-        if not check_null_values(df):
+        if not check_null_values(df, self.config['expected_columns']):
             result = False
 
         # Check for datatype consistency

@@ -1,14 +1,26 @@
 from utils.validation_functions.data_type_validators import *
 import pandas as pd
 
-def check_null_values(df):
-    """Check if the dataframe contains any null values."""
-    null_counts = df.isnull().sum()
-    if null_counts.any():
-        print("The CSV file contains null values in the following columns:")
-        print(null_counts[null_counts > 0])
-        return False
-    return True
+def check_null_values(df, expected_columns_config):
+    """Check if the dataframe contains any null values based on the config."""
+    
+    # Convert the expected columns list to a dictionary for easier lookup
+    column_details = {col['COLUMN_NAME']: col for col in expected_columns_config}
+
+    error_output = []
+
+    for column in df.columns:
+        # Check if the column is in the config and if null values aren't allowed
+        if column in column_details and column_details[column]['IS_NULLABLE'] == 'NO':
+            missing_values = df[column][df[column].isnull()]
+            if not missing_values.empty:
+                error_output.append(f"Column '{column}':\n{missing_values}\n")
+
+    # Print the collected error outputs
+    if error_output:
+        print("\n".join(error_output))
+    else:
+        print("No null values found in non-nullable columns.")
 
 def check_datatype_consistency(df, expected_columns_config):
     """Check if datatypes in the dataframe are consistent with the expected datatypes."""
