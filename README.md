@@ -29,13 +29,14 @@ Data Migration Utility is a Python-based tool for validating CSV files for uploa
 
 ## Configuration (WIP)
 
-1. Create a `config` directory inside the root directory
-2. Copy the `API_config_template.json` and `csv_config_template.json` from the root directory into the config folder you just created
-3. Rename the copies as `API_config.json` and `csv_config.json` respectively. 
-4. Update your newly renamed config files as per your requirements
-5. Copy paste the csv's that you want to test into the `tests` directory, double checking that you've updated the `csv_config.json` file to reflect your change
-6. Run the following command in your terminal to install the additional dependencies - `pip install -r requirements.txt`
-7. Run `python main.py` once all the setup is complete to test your pdf :)
+1. Clone the git repository to the computer you're testing CSV's on
+2. Create a `config` directory inside the root directory
+3. Copy the `API_config_template.json` and `csv_config_template.json` from the root directory into the config folder you just created
+4. Rename the copies as `API_config.json` and `csv_config.json` respectively. 
+5. Update your newly renamed config files as per your requirements
+6. Copy paste the csv's that you want to test into the `tests` directory, double checking that you've updated the `csv_config.json` file to reflect your change
+7. Run the following command in your terminal to install the additional dependencies - `pip install -r requirements.txt`
+8. Run `python main.py` once all the setup is complete to test your pdf :)
 
 ## Usage (WIP - ideally we can change the choice of csv to a CLI argument)
 

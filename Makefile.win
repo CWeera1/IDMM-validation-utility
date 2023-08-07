@@ -1,9 +1,0 @@
-
-# Makefile
-
-update:
-	pip install -r requirements.txt
-	pip install --upgrade pip
-	
-activate:
-	.\data-mig\Scripts\Activate.ps1
